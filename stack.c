@@ -1,19 +1,20 @@
 #include<stdio.h>
-int stack[100],choice,n,top,x,i;
-void push(void);
-void pop(void);
-void display(void);
+int stack[100],choice,n,i,top,x,s,flag=0;
+void push();
+void pop();
+void display();
+void search();
 int main()
 {
 top=-1;
-printf("\n enter the size of array[max=[100]:");
+printf("\n enter the size of array[max=[100]\n\t:");
 scanf("%d",&n);
 printf("\n\t stack operations using array");
 printf("\n\t-------------------------");
 printf("\n\t 1.PUSH\n\t 2.POP\n\t 3.DISPLAY\n\t 4.SEARCH\n\t  5.EXIT\n\t");
 do
 {
-	printf("\n Enter the choice:");
+	printf("\n\tEnter the choice\n\t");
 	scanf("%d",&choice);
 	switch(choice)
 	{
@@ -34,7 +35,7 @@ do
 		}
 		case 4:
 		{
-			printf("\n\t SEARCH");
+			search();
 			break;
 		}
 		case 5:
@@ -49,7 +50,7 @@ do
 		}
 	}
 }
-while(choice!=4);
+while(choice!=5);
 return 0;
 }
 void push()
@@ -57,9 +58,9 @@ void push()
 	if(top>=n-1)
 	{
 		printf("\n\tSTACK is over flow");
-}
-else
-{
+	}
+	else
+	{
 	printf(" Enter a value to be pushed:");
 	scanf("%d",&x);
 	top++;
@@ -83,7 +84,7 @@ void display()
 	if(top>=0)
 	{
 	printf("\n The element is STACK \n");
-	for(i=top; i>=0; i--)
+	for(i=0; i>=0; i--)
 	   printf("\n%d",stack[i]);
 	printf("\n press next choice");
 }
@@ -91,11 +92,12 @@ else
 {
 	printf("\n The stack is empty");
 }
-void search();
+}
+void search()
 {
 printf("\n\t Enter the element to be searched\n\t");
 scanf("%d",&s);
-for(i=top;i>0;i--)
+for(i=top;i>=0;i--)
 if(stack[i]==s)
 {
 flag=1;
@@ -113,3 +115,5 @@ else
 {
 printf("searched element not found");
 }
+}
+
